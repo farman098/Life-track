@@ -8,8 +8,8 @@ A responsive Next.js + TypeScript + Tailwind CSS frontend for the LifeTrack Expr
 - VS Code (recommended)
 
 ## Run locally
-1. Configure and start the backend using `Backend/LifeTrack-Backend/README.md`. The API needs a valid MongoDB connection and JWT secret.
-2. In this folder, create `.env.local` from `.env.example`. Set `NEXT_PUBLIC_API_URL` if the API is not at `http://localhost:5000/api`.
+1. Configure and start the backend using `../Backend/README.md`. The API needs a JWT secret; database-backed requests need a valid MongoDB connection.
+2. The frontend defaults to `http://localhost:5000/api`. If the API uses another URL, create `.env.local` in this folder and set `NEXT_PUBLIC_API_URL` to that URL.
 3. Install dependencies and start the frontend:
 
 ```bash

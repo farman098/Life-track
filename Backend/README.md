@@ -1,11 +1,12 @@
 # LifeTrack Backend (Express + MongoDB Atlas)
 
 ## Setup
-1. Extract this ZIP. Open the `LifeTrack-Backend` folder in VS Code.
+1. Open the `Backend` folder in VS Code.
 2. Run `npm install`.
-3. Copy `.env.example` to a new file named `.env`.
-4. Add your MongoDB Atlas connection string to `MONGO_URI`, a long private value to `JWT_SECRET`, and keep `CLIENT_URL=http://localhost:3000`.
-5. Run `npm run dev`. API runs at `http://localhost:5000`.
+3. Create a `.env` file in this folder.
+4. Add your MongoDB Atlas connection string to `MONGODB_URI` (the legacy `MONGO_URI` name is also accepted), set `PORT=5000`, add a long private value to `JWT_SECRET`, and set `CLIENT_URL` to your frontend origin. The backend allows `http://localhost:3000` and `http://localhost:5173` by default.
+   For an Atlas URI, use the `mongodb+srv://` format and URL-encode any special characters in the database user's password.
+5. Run `npm run dev`. API runs at `http://localhost:5000`, even if MongoDB is unavailable; the backend logs database connection errors.
 
 Never share your `.env` file or database password.
 
@@ -20,4 +21,4 @@ Never share your `.env` file or database password.
 Every record is tied to the logged-in user; queries and updates are scoped by user ID.
 
 ## Connect the frontend
-The frontend calls this API using `NEXT_PUBLIC_API_URL` (default: `http://localhost:5000/api`). Set the backend `CLIENT_URL` to the frontend origin, such as `http://localhost:3000`, then start the backend and frontend. Sign in or create an account in the frontend; records are stored in MongoDB and scoped to the authenticated user.
+The frontend calls this API using `NEXT_PUBLIC_API_URL` (default: `http://localhost:5000/api`). Set the backend `CLIENT_URL` to any additional frontend origin, then start the backend and frontend. Sign in or create an account in the frontend; records are stored in MongoDB and scoped to the authenticated user.
